@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "151b6967-ca97-4c35-9d1b-3f9e694bf060",
+		"name": "用户认证中心",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.获取token以及刷新token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "socpe",
+							"value": "all",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "152c5eb9-16cc-4815-bc54-dca11ecd6ff0",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8005/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.用户的退出登录",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 0a676766-7a9f-4736-84e3-adbc72148854",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8005/token/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"token",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.分页查看token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 0a676766-7a9f-4736-84e3-adbc72148854",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"current\":1,\n\t\"size\":20\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8005/token/page",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"token",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.删除token",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer e92c275a-20b1-4053-a19e-f30eb5b6f013",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8005/token/e92c275a-20b1-4053-a19e-f30eb5b6f013",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"token",
+						"e92c275a-20b1-4053-a19e-f30eb5b6f013"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

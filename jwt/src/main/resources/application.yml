@@ -1,0 +1,26 @@
+server:
+  port: 8006
+
+#注册中心
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    # 注册中心的地址
+#    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka/
+spring:
+  application:
+    name: oauth-server
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: sa
+    password: Admin123
+    url: jdbc:mysql://10.4.0.4:3306/aquaman?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+  redis:
+    database: 0
+    host: 10.4.0.4
+    port: 6379
+    password: redis123
+
